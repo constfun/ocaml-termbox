@@ -1,0 +1,14 @@
+OASISFormat: 0.4
+Name:        termbox
+Version:     0.1.0
+Synopsis:    termbox bindings for ocaml
+Authors:     Nick Zalutskiy <nick@zalutskiy.com>
+License:     FreeBSD
+Plugins:     META (0.4)
+
+Library termbox
+  Path:       lib
+  BuildTools: ocamlbuild
+  Modules:    Termbox
+  CSources:   termbox_stubs.c
+  CCLib:      -ltermbox
