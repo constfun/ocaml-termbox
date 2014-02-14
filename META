@@ -1,4 +1,4 @@
 version = "0.1.0"
 description = "termbox bindings for OCaml"
-archive(byte) = "otermbox.cma"
-archive(native) = "otermbox.cmxa"
+archive(byte) = "termbox.cma"
+archive(native) = "termbox.cmxa"

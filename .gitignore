@@ -1,5 +1,12 @@
 .DS_Store
 
-_build/
-setup.data
-setup.log
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.so
+*.o
+*.cmx
+*.cmxs
+*.cmxa
