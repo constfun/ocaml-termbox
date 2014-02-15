@@ -32,10 +32,10 @@ uninstall:
 	ocamlfind remove termbox
 
 docs:
-	rm -rf docs
 	mkdir docs
 	ocamlfind ocamldoc -html -d docs termbox.mli
 
 clean:
 	rm -f *.cmi *.cmxa *.cmxs *.cma *.cmx *.cmo *.o *.so *.a
 	cd $(TERMBOX_PATH) && ./waf clean
+	rm -rf docs
