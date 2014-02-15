@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Termbox" rel="Chapter" href="Termbox.html"><title>Termbox</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Termbox.html">Termbox</a></h1>
+
+<pre><span class="keyword">module</span> Termbox: <code class="code">sig</code> <a href="Termbox.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Minimalistic API for creating text-based interfaces. Alternative to ncurses.
+<p>
+
+    For API documentation see <a href=" https://github.com/nsf/termbox/blob/master/src/termbox.h "> termbox.h</a>.
+<p>
+
+    One important difference is that values of TB_KEY_* that are in the ASCII range (&lt; 256) are reported as Ascii and not Key.
+<p>
+
+    So if you wanted to check for <code class="code">Ctrl + C</code> you'd do something like this:
+<p>
+
+    <pre class="codepre"><code class="code">    match Termbox.poll_event () with
+    | Ascii c when c = '\x03' (* CTRL_C *) -&gt; ...
+    </code></pre><br>
+</div>
+<hr width="100%">
+
+<pre><code><span id="TYPEcolor"><span class="keyword">type</span> <code class="type"></code>color</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Default"><span class="constructor">Default</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Black"><span class="constructor">Black</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Red"><span class="constructor">Red</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Green"><span class="constructor">Green</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Yellow"><span class="constructor">Yellow</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Blue"><span class="constructor">Blue</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Magenta"><span class="constructor">Magenta</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.Cyan"><span class="constructor">Cyan</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcolor.White"><span class="constructor">White</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEkey"><span class="keyword">type</span> <code class="type"></code>key</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F1"><span class="constructor">F1</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F2"><span class="constructor">F2</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F3"><span class="constructor">F3</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F4"><span class="constructor">F4</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F5"><span class="constructor">F5</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F6"><span class="constructor">F6</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F7"><span class="constructor">F7</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F8"><span class="constructor">F8</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F9"><span class="constructor">F9</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F10"><span class="constructor">F10</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F11"><span class="constructor">F11</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.F12"><span class="constructor">F12</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Insert"><span class="constructor">Insert</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Delete"><span class="constructor">Delete</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Home"><span class="constructor">Home</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.End"><span class="constructor">End</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Page_up"><span class="constructor">Page_up</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Page_down"><span class="constructor">Page_down</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Arrow_up"><span class="constructor">Arrow_up</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Arrow_down"><span class="constructor">Arrow_down</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Arrow_left"><span class="constructor">Arrow_left</span></span></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTkey.Arrow_right"><span class="constructor">Arrow_right</span></span></code></td>
+
+</tr></table>
+
+
+
+<pre><code><span id="TYPEevent"><span class="keyword">type</span> <code class="type"></code>event</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.Key"><span class="constructor">Key</span></span> <span class="keyword">of</span> <code class="type"><a href="Termbox.html#TYPEkey">key</a></code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.Ascii"><span class="constructor">Ascii</span></span> <span class="keyword">of</span> <code class="type">char</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.Utf8"><span class="constructor">Utf8</span></span> <span class="keyword">of</span> <code class="type">int32</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTevent.Resize"><span class="constructor">Resize</span></span> <span class="keyword">of</span> <code class="type">int * int</code></code></td>
+
+</tr></table>
+
+
+
+<pre><span id="VALinit"><span class="keyword">val</span> init</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALshutdown"><span class="keyword">val</span> shutdown</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALwidth"><span class="keyword">val</span> width</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALheight"><span class="keyword">val</span> height</span> : <code class="type">unit -> int</code></pre>
+<pre><span id="VALclear"><span class="keyword">val</span> clear</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALset_clear_attributes"><span class="keyword">val</span> set_clear_attributes</span> : <code class="type"><a href="Termbox.html#TYPEcolor">color</a> -> <a href="Termbox.html#TYPEcolor">color</a> -> unit</code></pre>
+<pre><span id="VALpresent"><span class="keyword">val</span> present</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALset_cursor"><span class="keyword">val</span> set_cursor</span> : <code class="type">int -> int -> unit</code></pre>
+<pre><span id="VALhide_cursor"><span class="keyword">val</span> hide_cursor</span> : <code class="type">unit -> unit</code></pre>
+<pre><span id="VALset_cell_char"><span class="keyword">val</span> set_cell_char</span> : <code class="type">?fg:<a href="Termbox.html#TYPEcolor">color</a> -> ?bg:<a href="Termbox.html#TYPEcolor">color</a> -> int -> int -> char -> unit</code></pre>
+<pre><span id="VALset_cell_utf8"><span class="keyword">val</span> set_cell_utf8</span> : <code class="type">?fg:<a href="Termbox.html#TYPEcolor">color</a> -> ?bg:<a href="Termbox.html#TYPEcolor">color</a> -> int -> int -> int32 -> unit</code></pre>
+<pre><span id="VALpoll_event"><span class="keyword">val</span> poll_event</span> : <code class="type">unit -> <a href="Termbox.html#TYPEevent">event</a></code></pre></body></html>

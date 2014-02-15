@@ -1,3 +1,17 @@
+(** Minimalistic API for creating text-based interfaces. Alternative to ncurses.
+
+    For API documentation see {{: https://github.com/nsf/termbox/blob/master/src/termbox.h } termbox.h}.
+
+    One important difference is that values of TB_KEY_* that are in the ASCII range (< 256) are reported as Ascii and not Key.
+
+    So if you wanted to check for [Ctrl + C] you'd do something like this:
+
+    {[
+    match Termbox.poll_event () with
+    | Ascii c when c = '\x03' (* CTRL_C *) -> ...
+    ]}
+*)
+
 type color =
   | Default
   | Black
