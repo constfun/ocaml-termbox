@@ -42,35 +42,30 @@ type event =
   | Resize of int * int
 
 
-module Termbox = struct
-  type cell = { ch : int; fg : color; bg : color }
-  type buff = cell list
+external init : unit -> int = "tbstub_init"
+external shutdown : unit -> unit = "tb_shutdown"
 
-  external init : unit -> int = "tbstub_init"
-  external shutdown : unit -> unit = "tb_shutdown"
+external width : unit -> int = "tbstub_width"
+external height : unit -> int = "tbstub_height"
 
-  external width : unit -> int = "tbstub_width"
-  external height : unit -> int = "tbstub_height"
+external clear : unit -> unit = "tb_clear"
 
-  external clear : unit -> unit = "tb_clear"
+external set_clear_attributes : color -> color -> unit = "tbstub_set_clear_attributes"
 
-  external set_clear_attributes : color -> color -> unit = "tbstub_set_clear_attributes"
+external present : unit -> unit = "tb_present"
 
-  external present : unit -> unit = "tb_present"
+external set_cursor : int -> int -> unit = "tbstub_set_cursor"
 
-  external set_cursor : int -> int -> unit = "tbstub_set_cursor"
+let hide_cursor () =
+  set_cursor (-1) (-1)
 
-  let hide_cursor () =
-    set_cursor (-1) (-1)
+external tb_change_cell : int -> int -> int32 -> color -> color -> unit = "tbstub_change_cell"
 
-  external tb_change_cell : int -> int -> int32 -> color -> color -> unit = "tbstub_change_cell"
+let set_cell_utf8 ?(fg=Default) ?(bg=Default) x y ch =
+  tb_change_cell x y ch fg bg
 
-  let set_cell_utf8 ?(fg=Default) ?(bg=Default) x y ch =
-    tb_change_cell x y ch fg bg
+let set_cell_char ?(fg=Default) ?(bg=Default) x y ch =
+  let ch_int32 = Int32.of_int (Char.code ch) in
+  set_cell_utf8 ~fg ~bg x y ch_int32
 
-  let set_cell_char ?(fg=Default) ?(bg=Default) x y ch =
-    let ch_int32 = Int32.of_int (Char.code ch) in
-    set_cell_utf8 ~fg ~bg x y ch_int32
-
-  external poll_event : unit -> event = "tbstub_poll_event"
-end
+external poll_event : unit -> event = "tbstub_poll_event"

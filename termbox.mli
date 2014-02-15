@@ -42,23 +42,21 @@ type event =
   | Resize of int * int
 
 
-module Termbox : sig
-  val init : unit -> int
-  val shutdown : unit -> unit
+val init : unit -> int
+val shutdown : unit -> unit
 
-  val width : unit -> int
-  val height : unit -> int
+val width : unit -> int
+val height : unit -> int
 
-  val clear : unit -> unit
-  val set_clear_attributes : color -> color -> unit
+val clear : unit -> unit
+val set_clear_attributes : color -> color -> unit
 
-  val present : unit -> unit
+val present : unit -> unit
 
-  val set_cursor : int -> int -> unit
-  val hide_cursor : unit -> unit
+val set_cursor : int -> int -> unit
+val hide_cursor : unit -> unit
 
-  val set_cell_char : ?fg : color -> ?bg : color -> int -> int -> char -> unit
-  val set_cell_utf8 : ?fg : color -> ?bg : color -> int -> int -> int32 -> unit
+val set_cell_char : ?fg : color -> ?bg : color -> int -> int -> char -> unit
+val set_cell_utf8 : ?fg : color -> ?bg : color -> int -> int -> int32 -> unit
 
-  val poll_event : unit -> event
-end
+val poll_event : unit -> event
