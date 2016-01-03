@@ -139,7 +139,8 @@ CAMLprim value tbstub_poll_event() {
 CAMLprim value tbstub_peek_event(value caml_timeout) {
 
 	CAMLparam1(caml_timeout);
-	CAMLlocal3(caml_e, caml_ch, caml_size);
+	CAMLlocal4(caml_e, caml_ch, caml_size, caml_optional);
+  caml_optional = caml_alloc(1, 0);
 
 	struct tb_event e;
 	tb_peek_event(&e, Int_val(caml_timeout));
@@ -172,11 +173,13 @@ CAMLprim value tbstub_peek_event(value caml_timeout) {
 			//
 			// By "restoring" that offset number we get the int value that we need to represent the variant.
 			Store_field(caml_e, 0, Val_int(0xFFFF - e.key));
+      Store_field(caml_optional, 0, caml_e);
+      CAMLreturn(caml_optional);
 		}
     // Empty
-    // There was no event, so let's return Empty.
+    // There was no event, so let's return None.
     else if( e.ch == 0x00 ) {
-      caml_e = Val_int(0); 
+      CAMLreturn(Val_int(0));
     }
 		// Ascii
 		//
@@ -189,6 +192,8 @@ CAMLprim value tbstub_peek_event(value caml_timeout) {
 			//                                 or e.key = 0 && e.ch < 255
 			// So we just bitwise or the two values to get our ascii value.
 			Store_field(caml_e, 0, Val_int(e.ch | e.key));
+      Store_field(caml_optional, 0, caml_e);
+      CAMLreturn(caml_optional);
 		}
 		// Utf8
 		else {
@@ -198,6 +203,8 @@ CAMLprim value tbstub_peek_event(value caml_timeout) {
 			caml_e = caml_alloc(1, 2);
 			caml_ch = caml_copy_int32(e.ch);
 			Store_field(caml_e, 0, caml_ch);
+      Store_field(caml_optional, 0, caml_e);
+      CAMLreturn(caml_optional);
 		}
 	}
 	// Resize
@@ -208,7 +215,7 @@ CAMLprim value tbstub_peek_event(value caml_timeout) {
 
 		caml_e = caml_alloc(1, 3);
 		Store_field(caml_e, 0, caml_size);
+    Store_field(caml_optional, 0, caml_e);
+    CAMLreturn(caml_optional);
 	}
-
-	CAMLreturn(caml_e);
 }

@@ -47,7 +47,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Ascii</span>&nbsp;<span class="keyword">of</span>&nbsp;char<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Utf8</span>&nbsp;<span class="keyword">of</span>&nbsp;int32<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Resize</span>&nbsp;<span class="keyword">of</span>&nbsp;int&nbsp;*&nbsp;int<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">|</span>&nbsp;<span class="constructor">Empty</span><br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;init&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shutdown&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;width&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int<br>
@@ -62,5 +61,5 @@
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;set_cell_utf8&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;?fg:<span class="constructor">Termbox</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;?bg:<span class="constructor">Termbox</span>.color&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int32&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;poll_event&nbsp;:&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Termbox</span>.event<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;peek_event&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Termbox</span>.event<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;peek_event&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Termbox</span>.event&nbsp;option<br>
 <span class="keyword">end</span></code></body></html>
