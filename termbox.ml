@@ -40,6 +40,7 @@ type event =
   | Ascii of char
   | Utf8 of int32
   | Resize of int * int
+  | Empty
 
 
 external init : unit -> int = "tbstub_init"
@@ -52,6 +53,7 @@ external present : unit -> unit = "tb_present"
 external set_cursor : int -> int -> unit = "tbstub_set_cursor"
 external tb_change_cell : int -> int -> int32 -> color -> color -> unit = "tbstub_change_cell"
 external poll_event : unit -> event = "tbstub_poll_event"
+external peek_event : int -> event = "tbstub_peek_event"
 
 let hide_cursor () =
   set_cursor (-1) (-1)
