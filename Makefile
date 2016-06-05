@@ -26,7 +26,7 @@ $(TERMBOX_A):
 	cd $(TERMBOX_PATH) && ./waf configure && ./waf
 
 install:
-	ocamlfind install termbox META *.cmi *.cma *.cmxa *.cmxs *.a *.so
+	ocamlfind install termbox META *.cmi *.cma *.cmx *.cmxa *.cmxs *.a *.so
 
 uninstall:
 	ocamlfind remove termbox
