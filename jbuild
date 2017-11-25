@@ -1,0 +1,7 @@
+(jbuild_version 1)
+
+(library
+  ((name termbox)
+   (public_name termbox)
+   (c_names (termbox_stubs))
+   (c_library_flags (-ltermbox))))

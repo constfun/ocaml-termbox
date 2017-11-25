@@ -1,0 +1,8 @@
+opam-version: "1"
+maintainer: "Nick Zalutskiy <nick@zalutskiy.com>"
+homepage: "https://github.com/pacemkr/ocaml-termbox"
+doc: "http://pacemkr.github.io/ocaml-termbox/"
+license: "BSD-2-Clause"
+build: [
+  ["jbuilder" "build"]
+]

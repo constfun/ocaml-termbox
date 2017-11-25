@@ -1,12 +1,5 @@
 .DS_Store
 
-*.annot
-*.cmo
-*.cma
-*.cmi
-*.a
-*.so
-*.o
-*.cmx
-*.cmxs
-*.cmxa
+.merlin
+*.install
+_build/
