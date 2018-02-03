@@ -13,4 +13,4 @@ Or, using make:
 _Note_
 * _The `make` installation method requires [ocamlfind](http://projects.camlcity.org/projects/findlib.html)._
 
-### Documentation: http://pacemkr.github.io/ocaml-termbox/
+### Documentation: http://constfun.github.io/ocaml-termbox/
